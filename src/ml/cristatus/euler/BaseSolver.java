@@ -22,10 +22,34 @@
  * THE SOFTWARE.
  */
 
+package ml.cristatus.euler;
+
+import java.math.BigInteger;
+
 /**
- * This package contains solvers for Project Euler questions numbered 1 to 10.
+ * This a common interface that helps to provide a common access point for all
+ * the Solvers.
  *
  * @author Subhomoy Haldar
  * @version 1.0
  */
-package ml.cristatus.euler.problems1to10;
+public interface BaseSolver {
+
+    /**
+     * This method returns the answer to the question as per the arguments
+     * stated originally. Therefore, it is incapable of accepting any arguments.
+     * It returns the answer using the fastest method implemented.
+     *
+     * @return The answer to the question.
+     */
+    long getAnswer();
+
+    /**
+     * In case the answer required exceeds the range of a Long, (which is
+     * very unlikely), it returns the result without loss of precision in the
+     * form a BigInteger.
+     *
+     * @return The answer as a BigInteger.
+     */
+    BigInteger getBigIntegerAnswer();
+}
