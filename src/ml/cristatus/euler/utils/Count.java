@@ -37,14 +37,34 @@ import static java.math.BigInteger.*;
  */
 public class Count {
 
+    /**
+     * This methods calculates the factorial of the given Long.
+     *
+     * @param number The number whose factorial to calculate.
+     * @return The factorial of the given number.
+     */
     public static BigInteger factorialOf(long number) {
         return new ParallelMultiplier(ONE, valueOf(number + 1)).compute();
     }
 
+    /**
+     * This methods calculates the factorial of the given BigInteger.
+     *
+     * @param integer The integer whose factorial to calculate.
+     * @return The factorial of the given number.
+     */
     public static BigInteger factorialOf(BigInteger integer) {
         return new ParallelMultiplier(ONE, integer.add(ONE)).compute();
     }
 
+    /**
+     * Calculates the number of combinations of r distinct elements out of n
+     * distinct elements (i.e. n choose r).
+     *
+     * @param n The total number of elements.
+     * @param r The number of elements to choose.
+     * @return <sup>n</sup>C<sub>r</sub> or "n choose r".
+     */
     public static BigInteger combinations(long n, long r) {
         // speedy exits
         if (n == r || r == 1)
@@ -64,7 +84,17 @@ public class Count {
         return product;
     }
 
+    /**
+     * Calculates the number of permutations of r distinct elements out of n
+     * distinct elements (i.e. number of ways in which r distinct elements
+     * can be arranged).
+     *
+     * @param n The total number of elements.
+     * @param r The number of elements to choose.
+     * @return <sup>n</sup>P<sub>r</sub>.
+     */
     public static BigInteger permutations(long n, long r) {
+        // speedy exits
         if (n == r)
             return factorialOf(n);
         if (r == 1)
