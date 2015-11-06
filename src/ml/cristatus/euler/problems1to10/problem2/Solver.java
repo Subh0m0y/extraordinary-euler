@@ -43,6 +43,11 @@ import java.math.BigInteger;
  */
 public class Solver implements BaseSolver {
 
+    /**
+     * The entry point for the program if used in a terminal.
+     *
+     * @param args The command-line arguments.
+     */
     public static void main(String[] args) {
         bruteForce(4_000_000);
         betterBruteForce(4_000_000);
