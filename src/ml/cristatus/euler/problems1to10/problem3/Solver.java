@@ -24,6 +24,10 @@
 
 package ml.cristatus.euler.problems1to10.problem3;
 
+import ml.cristatus.euler.BaseSolver;
+
+import java.math.BigInteger;
+
 /**
  * <h1>Largest prime factor</h1>
  * The prime factors of 13195 are 5, 7, 13 and 29.
@@ -33,7 +37,7 @@ package ml.cristatus.euler.problems1to10.problem3;
  * @author Subhomoy Haldar
  * @version 1.0
  */
-public class Solver {
+public class Solver implements BaseSolver {
 
     /**
      * The entry point for the program if used in a terminal.
@@ -43,6 +47,24 @@ public class Solver {
     public static void main(String[] args) {
         bruteForce(600851475143L);
         betterBruteForce(600851475143L);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
+    public long getAnswer() {
+        return betterBruteForce(4_000_000);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
+    public BigInteger getBigIntegerAnswer() {
+        return BigInteger.valueOf(getAnswer());
     }
 
     /**
