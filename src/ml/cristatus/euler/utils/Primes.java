@@ -74,6 +74,11 @@ public class Primes {
 
     /**
      * Returns an array of primes upto the given inclusive limit.
+     * <p>
+     * <h2>Time complexity:</h2>
+     * O(n)
+     * <h2>Space complexity:</h2>
+     * O(n)
      *
      * @param limit The inclusive upper limit.
      * @return An array of primes upto the given inclusive limit.
