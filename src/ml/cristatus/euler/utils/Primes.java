@@ -40,7 +40,7 @@ public class Primes {
      * <pre><code>
      *  // ...
      *  boolean[] sieve = Prime.siftTill(someLimit);
-     *  int n = yourNumber
+     *  int n = (yourNumber);
      *  if (sieve[n])
      *      // ... do operations with the prime number
      *  // ...
