@@ -24,9 +24,10 @@
 
 package ml.cristatus.euler.utils;
 
+import java.util.Arrays;
+
 /**
- * This is a utility class that contains methods related to prime numbers
- * that are used in many problems in Project Euler.
+ * This is a utility class that contains methods related to prime numbers.
  *
  * @author Subhomoy Haldar
  * @version 1.0
@@ -39,7 +40,7 @@ public class Primes {
      * example,
      * <pre><code>
      *  // ...
-     *  boolean[] sieve = Prime.siftTill(someLimit);
+     *  boolean[] sieve = Prime.siftUntil(someLimit);
      *  int n = (yourNumber);
      *  if (sieve[n])
      *      // ... do operations with the prime number
@@ -54,20 +55,16 @@ public class Primes {
      * @param n The number till which the sieve must be generated.
      * @return The sieve in the form of a boolean array.
      */
-    public static boolean[] siftTill(int n) {
-        // create an array of size (n + 1), to include the index n as well
-        boolean[] sieve = new boolean[++n];
-        // the outer loop will be limited to ~ sqrt(n) iterations
+    public static boolean[] siftUntil(final int n) {
+        final int size = n + 1;
+        boolean[] sieve = new boolean[size];
+        Arrays.fill(sieve, 2, size, true);  // 0 and 1 are not prime
         int limit = (int) Math.sqrt(n);
-        // initially set all to true except 0 and 1
-        for (int i = 2; i < n; i++) sieve[i] = true;
-        // start from 2 and remove all multiples of primes
-        for (int i = 2; i < limit; i++) {
-            if (sieve[i]) {
-                for (int j = i * i; j < n; j += i) {
-                    sieve[j] = false;
-                }
-            }
+        for (int i = 2; i <= limit; i++) {
+            if (!sieve[i]) continue;
+
+            for (int j = i * i; j <= n; j += i)
+                sieve[j] = false;
         }
         return sieve;
     }
@@ -76,24 +73,22 @@ public class Primes {
      * Returns an array of primes upto the given inclusive limit.
      * <p>
      * <h2>Time complexity:</h2>
-     * O(n)
+     * O(n log log n)
      * <h2>Space complexity:</h2>
      * O(n)
      *
      * @param limit The inclusive upper limit.
      * @return An array of primes upto the given inclusive limit.
      */
-    public static long[] getPrimesTill(int limit) {
-        boolean[] isPrime = siftTill(limit);
-        // 1st pass: count the number of primes
-        int count = 0, index = 0;
+    public static long[] getPrimesUntil(final int limit) {
+        boolean[] isPrime = siftUntil(limit);
+        int count = 0;
         for (int i = 2; i <= limit; i++) {
             if (isPrime[i])
                 count++;
         }
         long[] primes = new long[count];
-        // 2nd pass: store the primes
-        for (int i = 2; i <= limit; i++) {
+        for (int i = 2, index = 0; i <= limit; i++) {
             if (isPrime[i])
                 primes[index++] = i;
         }
