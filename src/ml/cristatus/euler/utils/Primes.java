@@ -35,6 +35,12 @@ import java.util.Arrays;
 public class Primes {
 
     /**
+     * Private constructor to prevent instantiation.
+     */
+    private Primes() {
+    }
+
+    /**
      * Returns a boolean array that is essentially a sieve. In order to check
      * if a number is prime, check if the boolean at that index is true. For
      * example,
