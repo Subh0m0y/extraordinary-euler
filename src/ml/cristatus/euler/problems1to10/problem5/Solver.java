@@ -24,7 +24,10 @@
 
 package ml.cristatus.euler.problems1to10.problem5;
 
+import ml.cristatus.euler.BaseSolver;
 import ml.cristatus.euler.utils.Primes;
+
+import java.math.BigInteger;
 
 import static java.lang.Math.*;
 
@@ -40,7 +43,7 @@ import static java.lang.Math.*;
  * @author Subhomoy Haldar
  * @version 1.0
  */
-public class Solver {
+public class Solver implements BaseSolver {
 
     /**
      * The entry point for the program if used in a terminal.
@@ -50,6 +53,24 @@ public class Solver {
     public static void main(String[] args) {
         System.out.println(bruteForce(20));
         System.out.println(cacheAndConquer(20));
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
+    public long getAnswer() {
+        return cacheAndConquer(20);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
+    public BigInteger getBigIntegerAnswer() {
+        return BigInteger.valueOf(getAnswer());
     }
 
     /**
