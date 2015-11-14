@@ -60,6 +60,7 @@ public class Solver implements BaseSolver {
      *
      * @return {@inheritDoc}
      */
+    @Override
     public long getAnswer() {
         return cacheAndConquer(20);
     }
@@ -69,6 +70,7 @@ public class Solver implements BaseSolver {
      *
      * @return {@inheritDoc}
      */
+    @Override
     public BigInteger getBigIntegerAnswer() {
         return BigInteger.valueOf(getAnswer());
     }

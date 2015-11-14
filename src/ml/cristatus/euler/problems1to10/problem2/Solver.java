@@ -58,6 +58,7 @@ public class Solver implements BaseSolver {
      *
      * @return {@inheritDoc}
      */
+    @Override
     public long getAnswer() {
         return betterBruteForce(4_000_000);
     }
@@ -67,6 +68,7 @@ public class Solver implements BaseSolver {
      *
      * @return {@inheritDoc}
      */
+    @Override
     public BigInteger getBigIntegerAnswer() {
         return BigInteger.valueOf(getAnswer());
     }

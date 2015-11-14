@@ -55,6 +55,7 @@ public class Solver implements BaseSolver {
      *
      * @return {@inheritDoc}
      */
+    @Override
     public long getAnswer() {
         return sumOfMultiplesOf(3, 5, 1_000);
     }
@@ -65,6 +66,7 @@ public class Solver implements BaseSolver {
      *
      * @return {@inheritDoc}
      */
+    @Override
     public BigInteger getBigIntegerAnswer() {
         return BigInteger.valueOf(getAnswer());
     }
