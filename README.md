@@ -1,10 +1,11 @@
 # Extraordinary Euler
-This project contains the solutions to the questions on [Project Euler](https://projecteuler.net) written in Java. All the questions are addressed sequentially and their solutions are provided in their respective packages, in the `Solver` classes. Every `Solver` is an implementation of `BaseSolver` and supports `getAnswer()` and `getBigIntegerAnswer()` methods.
+This project contains the solutions to the questions on [Project Euler]
+(https://projecteuler.net) written in Java. All the questions are addressed sequentially and their solutions are provided in their respective packages, in the `Solver` classes. Every `Solver` is an implementation of `BaseSolver` and supports `getAnswer()` and `getBigIntegerAnswer()` methods.
 
 # Usage
-1. **Download:**Just clone this repository into any local directory.
-2. **Compile:** The source code is only included, so you must compile the project. Use an IDE (preferrably [IntelliJ IDEA](https://www.jetbrains.com/idea/download/)).
-3. **Contribute!** Right now, I (Subhomoy) am the only contributor. I might need your help. Feel free to Fork this project and submit a Pull request.
+1. This project has been crated using [IntelliJ IDEA](https://www.jetbrains.com/idea/download/). You can choose the New Project option to Checkout from VCS and paste the URL of this Git repository.
+2. Alternatively, clone this repository into a local directory and use your IDE of choice.
+3. Contribute if you want. Currently, I am the only contributor.
 
 # License
 This project is shared under the MIT License:

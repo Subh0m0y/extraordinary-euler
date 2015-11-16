@@ -95,6 +95,7 @@ public class Solver implements BaseSolver {
         int runLength = 13;
         System.out.println(bruteForce(runLength));
         System.out.println(skippingApproach(runLength));
+        System.out.println(fasterApproach(runLength));
     }
 
     /**
@@ -164,5 +165,49 @@ public class Solver implements BaseSolver {
                 max = product;
         }
         return max;
+    }
+
+    public static long fasterApproach(final int runLength) {
+        int length = DATA.length() - runLength;
+        int index = 0;
+        long product = sequentialProduct(0, runLength, length);
+        long max = 0;
+        while (product < 0) {
+            index = (int) (-product);
+            product = sequentialProduct(index, runLength, length);
+        }
+        for (; index < length; index++) {
+            int digit = DATA.charAt(index + runLength) & 0xF;
+            if (digit == 0) {
+                product = sequentialProduct(index, runLength, length);
+                while (product < 0) {
+                    index = (int) (-product);
+                    product = sequentialProduct(index, runLength, length);
+                }
+            }
+            if (max < product) {
+                max = product;
+            }
+            int lastDigit = DATA.charAt(index) & 0xF;
+            product = product * digit / lastDigit;
+        }
+        return max;
+    }
+
+    public static long sequentialProduct(int index,
+                                         int runLength,
+                                         int length) {
+        long product = 1;
+        for (int i = index; i < length; i++) {
+            for (int j = 0; j < runLength; j++) {
+                int digit = DATA.charAt(i + j) & 0xF;
+                if (digit == 0) {
+                    System.out.println("Zero found");
+                    return -(i + j + 1);
+                }
+                product *= digit;
+            }
+        }
+        return product;
     }
 }
