@@ -24,14 +24,54 @@
 
 package ml.cristatus.euler.problems1to10.problem9;
 
+import ml.cristatus.euler.BaseSolver;
+
+import java.math.BigInteger;
+
 /**
+ * <h1>Special Pythagorean triplet</h1>
+ * A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,
+ * <p>
+ * a&sup2; + b&sup2; = c&sup2;
+ * <p>
+ * For example, 3&sup2; + 4&sup2; = 9 + 16 = 25 = 5&sup2;.
+ * <p>
+ * There exists exactly one Pythagorean triplet for which a + b + c = 1000.
+ * Find the product abc.
+ *
  * @author Subhomoy Haldar
  * @version 1.0
  */
-public class Solver {
+public class Solver implements BaseSolver {
+    /**
+     * The entry point for the program if used in a terminal.
+     *
+     * @param args The command-line arguments.
+     */
     public static void main(String[] args) {
         long sum = 1_000;
         bruteForce(sum);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
+    @Override
+    public long getAnswer() {
+        return bruteForce(1_000);
+    }
+
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
+    @Override
+    public BigInteger getBigIntegerAnswer() {
+        return BigInteger.valueOf(getAnswer());
     }
 
     public static long bruteForce(long sum) {
