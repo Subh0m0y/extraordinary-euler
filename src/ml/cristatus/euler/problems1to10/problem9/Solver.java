@@ -75,6 +75,13 @@ public class Solver implements BaseSolver {
         return BigInteger.valueOf(getAnswer());
     }
 
+    /**
+     * This method tries to find a set of three numbers that satisfy the
+     * condition.
+     *
+     * @param sum The sum that the three numbers must reach.
+     * @return The solution using brute force.
+     */
     public static long bruteForce(long sum) {
         for (long c = 1_000; c >= 3; c--) {
             long cSquare = c * c;
@@ -93,6 +100,13 @@ public class Solver implements BaseSolver {
         return -1;  // not found
     }
 
+    /**
+     * Using a bit of number theory, the number of unknowns is reduced to 2.
+     * By further adding a constraint, the running time is further reduced.
+     *
+     * @param sum The sum that the three numbers must reach.
+     * @return The solution using a number theoretical approach.
+     */
     public static long numberTheoreticalApproach(long sum) {
         long halfSum = sum >>> 1;
         long estimate = (long) Math.sqrt(halfSum);
