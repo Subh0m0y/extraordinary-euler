@@ -50,7 +50,8 @@ public class Solver implements BaseSolver {
      */
     public static void main(String[] args) {
         long sum = 1_000;
-        bruteForce(sum);
+        System.out.println(bruteForce(sum));
+        System.out.println(numberTheoreticalApproach(sum));
     }
 
     /**
@@ -60,7 +61,7 @@ public class Solver implements BaseSolver {
      */
     @Override
     public long getAnswer() {
-        return bruteForce(1_000);
+        return numberTheoreticalApproach(1_000);
     }
 
 
@@ -84,8 +85,22 @@ public class Solver implements BaseSolver {
                         continue;
                     long aSquare = a * a;
                     if (aSquare + bSquare == cSquare) {
-                        System.out.println(a * b * c);
+                        return a * b * c;
                     }
+                }
+            }
+        }
+        return -1;  // not found
+    }
+
+    public static long numberTheoreticalApproach(long sum) {
+        long halfSum = sum >>> 1;
+        long estimate = (long) Math.sqrt(halfSum);
+        for (long m = 1; m < estimate; m++) {
+            for (long n = 0; n < m; n++) {
+                long partial = m * (m + n);
+                if (partial == halfSum) {
+                    return ((m * m * m * m - n * n * n * n) * m * n) << 1;
                 }
             }
         }
