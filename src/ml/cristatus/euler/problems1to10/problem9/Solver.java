@@ -110,12 +110,11 @@ public class Solver implements BaseSolver {
     public static long numberTheoreticalApproach(long sum) {
         long halfSum = sum >>> 1;
         long estimate = (long) Math.sqrt(halfSum);
-        for (long m = 1; m < estimate; m++) {
-            for (long n = 0; n < m; n++) {
-                long partial = m * (m + n);
-                if (partial == halfSum) {
-                    return ((m * m * m * m - n * n * n * n) * m * n) << 1;
-                }
+        for (long m = estimate; m > 0; m--) {
+            long n = (halfSum / m) - m;
+            long partial = m * (m + n);
+            if (partial == halfSum) {
+                return ((m * m * m * m - n * n * n * n) * m * n) << 1;
             }
         }
         return -1;  // not found
