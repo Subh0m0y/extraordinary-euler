@@ -32,7 +32,7 @@ import java.math.BigInteger;
  * <h1>Sum square difference</h1>
  * The sum of the squares of the first ten natural numbers is,
  * <p>
- * 1&sup2; + 2&sup2; + ... + 10&sup2; = 385}
+ * 1&sup2; + 2&sup2; + ... + 10&sup2; = 385
  * <p>
  * The square of the sum of the first ten natural numbers is,
  * <p>

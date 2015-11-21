@@ -55,10 +55,11 @@ import java.util.Scanner;
  * 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54<br>
  * 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48<br>
  * <p>
- * The product of these numbers is 26 × 63 × 78 × 14 = 1788696.
+ * The product of these numbers is 26 &times; 63 &times; 78 &times; 14 =
+ * 1788696.
  * <p>
  * What is the greatest product of four adjacent numbers in the same direction
- * (up, down, left, right, or diagonally) in the 20×20 grid?
+ * (up, down, left, right, or diagonally) in the 20&times;20 grid?
  *
  * @author Subhomoy Haldar
  * @version 1.0

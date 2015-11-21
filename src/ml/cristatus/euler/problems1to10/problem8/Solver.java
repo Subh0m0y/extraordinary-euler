@@ -31,7 +31,8 @@ import java.math.BigInteger;
 /**
  * <h1>Largest product in a series</h1>
  * The four adjacent digits in the 1000-digit number that have the greatest
- * product are 9 × 9 × 8 × 9 = 5832.
+ * product are 9 &times; 9 &times; 8 &times; 9 = 5832.
+ * <p>
  * <pre>
  * 73167176531330624919225119674426574742355349194934
  * 96983520312774506326239578318016984801869478851843
