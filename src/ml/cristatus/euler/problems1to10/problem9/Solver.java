@@ -30,7 +30,8 @@ import java.math.BigInteger;
 
 /**
  * <h1>Special Pythagorean triplet</h1>
- * A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,
+ * A Pythagorean triplet is a set of three natural numbers, a &lt; b &lt; c,
+ * for which,
  * <p>
  * a&sup2; + b&sup2; = c&sup2;
  * <p>
