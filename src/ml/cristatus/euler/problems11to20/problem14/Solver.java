@@ -24,6 +24,9 @@
 
 package ml.cristatus.euler.problems11to20.problem14;
 
+import ml.cristatus.euler.BaseSolver;
+
+import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,35 +51,112 @@ import java.util.Map;
  * @author Subhomoy Haldar
  * @version 1.0
  */
-public class Solver {
+public class Solver implements BaseSolver {
 
+    /**
+     * This map is used to cache the lengths of numbers when invoked for the
+     * first time.
+     */
     private static final Map<Long, Long> lengthMap
-            = new HashMap<>(1_000_000);
+            = new HashMap<>(3_000_000);
 
-    static {
-        lengthMap.put(1L, 1L);
+    /**
+     * The entry point for the program if used in a terminal.
+     *
+     * @param args The command-line arguments.
+     */
+    public static void main(String[] args) {
+        long limit = 1_000_000;
+        System.out.println(bruteForce(limit));
+        System.out.println(cacheAndConquer(limit));
     }
 
-    public static void main(String[] args) {
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
+    @Override
+    public long getAnswer() {
+        return bruteForce(1_000_000);
+    }
+
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
+    @Override
+    public BigInteger getBigIntegerAnswer() {
+        return BigInteger.valueOf(getAnswer());
+    }
+
+    /**
+     * This method uses plain brute force to generate the next term in the
+     * sequence till it becomes 1.
+     *
+     * @return The term which produces the longest sequence.
+     */
+    public static long bruteForce(final long limit) {
         long max = 0, term = 0;
-        for (long i = 1; i < 1_000_000; i++) {
+        for (long i = 1; i < limit; i++) {
             long length = plainLengthOf(i);
             if (max < length) {
                 max = length;
                 term = i;
             }
         }
-        System.out.println(term);
+        return term;
     }
 
+    /**
+     * This method tries to cache the lengths of pre-computed numbers to try
+     * and reduce running-time, but actually fails to obtain any edge over
+     * the plain old brute-force method.
+     *
+     * @return The term which produces the longest sequence.
+     */
+    public static long cacheAndConquer(final long limit) {
+        long max = 0, term = 0;
+        for (long i = 1; i < limit; i++) {
+            long length = lengthOf(i);
+            if (max < length) {
+                max = length;
+                term = i;
+            }
+        }
+        return term;
+    }
+
+    /**
+     * This is a straightforward iterative implementation of the length
+     * counting algorithm that does not use caching.
+     * <p>
+     * Surprisingly, this method turns out to be just as fast the cahced
+     * approach.
+     *
+     * @param number The number whose sequence length is to be determined.
+     * @return The length of the Collatz sequence for this number.
+     */
     public static long plainLengthOf(long number) {
-        if (number == 1)
-            return 1;
-        return 1 + ((number & 1) == 0
-                ? lengthOf(number >>> 1)
-                : lengthOf(1 + number + (number << 1)));
+        long length = 0;
+        while (number != 1) {
+            number = (number & 1) == 0
+                    ? number >>> 1
+                    : 1 + number + (number << 1);
+            length++;
+        }
+        return length;
     }
 
+    /**
+     * This method tries to obtain a speed boost by caching the length of
+     * sequences of newly encountered number (and fails to do so).
+     *
+     * @param number The number whose sequence length is to be determined.
+     * @return The length of the Collatz sequence for this number.
+     */
     public static long lengthOf(long number) {
         if (number == 1)
             return 1;
