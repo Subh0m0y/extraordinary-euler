@@ -68,6 +68,7 @@ import java.util.Arrays;
  * How many such routes are there through a 20&times;20 grid?
  *
  * @author Subhomoy Haldar
+ * @version 1.0
  */
 public class Solver implements BaseSolver {
 
