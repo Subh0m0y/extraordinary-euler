@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-package ml.cristatus.euler.problems11to20.problem18;
+package ml.cristatus.euler.problems11to20.problem20;
 
 import ml.cristatus.euler.BaseSolver;
 import ml.cristatus.euler.utils.Count;
