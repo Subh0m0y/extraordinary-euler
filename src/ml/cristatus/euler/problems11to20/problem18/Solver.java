@@ -22,34 +22,11 @@
  * THE SOFTWARE.
  */
 
-package ml.cristatus.euler;
-
-import java.math.BigInteger;
+package ml.cristatus.euler.problems11to20.problem18;
 
 /**
- * This a common interface that helps to provide a common access point for all
- * the Solvers.
- *
  * @author Subhomoy Haldar
  * @version 1.0
  */
-public interface BaseSolver {
-
-    /**
-     * This method returns the answer to the question as per the arguments
-     * stated originally. Therefore, it is incapable of accepting any arguments.
-     * It returns the answer using the fastest method implemented.
-     *
-     * @return The answer to the question.
-     */
-    long getAnswer();
-
-    /**
-     * In case the answer required exceeds the range of a Long, (which is
-     * very unlikely), it returns the result without loss of precision in the
-     * form a BigInteger.
-     *
-     * @return The answer as a BigInteger.
-     */
-    BigInteger getBigIntegerAnswer();
+public class Solver {
 }
